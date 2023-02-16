@@ -2,10 +2,12 @@
 class BooksList {
   constructor() {
     const thisBookList = this;
+    thisBookList.determineRatingBgc();
     thisBookList.initData();
     thisBookList.getElements();
+
     thisBookList.initActions();
-    thisBookList.determineRatingBgc();
+    
   }
   initData() {
     const thisBookList = this;
@@ -91,27 +93,28 @@ class BooksList {
     });
   }
   determineRatingBgc(rating) {
-    const thisBookList = this;
-    thisBookList.background = '';
+    let background ='';
     switch(true){
     case rating < 6: 
-      thisBookList.background = 'background: linear-gradient(to bottom,  #fefcea 0%, #f1da36 100%)';
-      console.log(thisBookList.background);
+      background = 'linear-gradient(to bottom,  #fefcea 0%, #f1da36 100%)';
+      console.log(background);
       break;
     case rating > 6 && rating <= 8: 
-      thisBookList.background = 'background: linear-gradient(to bottom, #b4df5b 0%,#b4df5b 100%)';
-      console.log(thisBookList.background);
+      background = 'linear-gradient(to bottom, #b4df5b 0%,#b4df5b 100%)';
+      console.log(background);
       break;
     case rating > 8 && rating <= 9: 
-      thisBookList.background = 'background: linear-gradient(to bottom, #299a0b 0%, #299a0b 100%)';
-      console.log(thisBookList.background);
+      background = 'linear-gradient(to bottom, #299a0b 0%, #299a0b 100%)';
+      console.log(background);
       break;
     case rating > 9: 
-      thisBookList.background = 'background: linear-gradient(to bottom, #ff0084 0%,#ff0084 100%)';
-      console.log(thisBookList.background);
+      background = 'linear-gradient(to bottom, #ff0084 0%,#ff0084 100%)';
+      console.log(background);
       break; 
-    } 
+    }
+    return background; 
   }
+  
 }
 
 const app = new BooksList();
